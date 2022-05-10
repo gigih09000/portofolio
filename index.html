@@ -11,9 +11,9 @@
 
     <title>Portofolio | Gigih Kusuma Wicaksana</title>
   </head>
-  <body>
+  <body id="home">
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm" style="background-color: #006594">
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top" style="background-color: #006594">
       <div class="container">
         <a class="navbar-brand" href="#">Gigih Kusuma Wicaksana</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,19 +22,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="#home">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">about</a>
+              <a class="nav-link" href="#about">about</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Projects</a>
+              <a class="nav-link" href="#projects">Projects</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">CV</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
+              <a class="nav-link" href="#contact">Contact</a>
             </li>
           </ul>
         </div>
@@ -47,6 +47,9 @@
     <style type="text/css">
       body{
         min-height: 2000px;
+      }
+      section{
+        padding-top: 5rem;
       }
       .jumbotron {
         padding-top: 2rem;

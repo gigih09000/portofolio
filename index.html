@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gigih Kusuma Wicaksana - Portofolio Teknik Elektro</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+  /* Reset and base */
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #f4f6f9;
+    color: #1e293b;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  a {
+    color: #2563eb;
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:focus {
+    text-decoration: underline;
+  }
+
+  /* Container */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    flex-grow: 1;
+  }
+
+  /* Header */
+  header {
+    background: linear-gradient(135deg, #1e40af, #3b82f6);
+    color: white;
+    padding: 40px 24px 48px;
+    text-align: center;
+    border-radius: 16px;
+    margin-bottom: 48px;
+    box-shadow: 0 10px 32px rgba(30, 64, 175, 0.32);
+    position: relative;
+  }
+
+  header h1 {
+    font-weight: 700;
+    font-size: 3rem;
+    margin-top: 16px;
+    line-height: 1.1;
+  }
+
+  header p {
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: #cbd5e1;
+    margin-top: 8px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  header .contacts {
+    font-weight: 500;
+    font-size: 1rem;
+    color: #cfd8ff;
+    margin-top: 24px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  header .contacts a {
+    color: #bbdefb;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+
+  header .contacts a:hover,
+  header .contacts a:focus {
+    color: #e0e7ff;
+  }
+
+  /* Profile photo */
+  .profile-photo {
+    position: absolute;
+    left: 50%;
+    top: 16px;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid white;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    background: white;
+  }
+
+  .profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Section titles */
+  h2.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e40af;
+    border-bottom: 4px solid #3b82f6;
+    padding-bottom: 8px;
+    margin-bottom: 32px;
+    letter-spacing: 0.02em;
+  }
+
+  /* Language toggle */
+  .language-toggle {
+    position: absolute;
+    top: 16px;
+    right: 24px;
+    display: flex;
+    gap: 12px;
+  }
+
+  .language-toggle button {
+    background: transparent;
+    border: 2px solid #bbdefb;
+    color: #bbdefb;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.25s, color 0.25s, border-color 0.25s;
+  }
+
+  .language-toggle button:hover,
+  .language-toggle button:focus {
+    background-color: #bbdefb;
+    color: #1e40af;
+    outline: none;
+  }
+
+  .language-toggle button.active {
+    background-color: white;
+    color: #1e40af;
+    border-color: white;
+  }
+
+  /* About Me */
+  #about p {
+    font-size: 1.125rem;
+    color: #334155;
+    max-width: 720px;
+    margin-bottom: 36px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Flex layout for skills, experience, projects */
+  .flex-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+  }
+
+  /* Skills section */
+  #skills {
+    background: #e0e7ff;
+    border-radius: 16px;
+    padding: 32px 36px;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+  }
+
+  #skills ul {
+    list-style: none;
+    columns: 2;
+    column-gap: 48px;
+  }
+
+  #skills li {
+    background: white;
+    margin: 10px 0;
+    padding: 14px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.2);
+    font-weight: 700;
+    color: #1e3a8a;
+    transition: background-color 0.35s;
+    cursor: default;
+  }
+
+  #skills li:hover,
+  #skills li:focus {
+    background-color: #c7d2fe;
+  }
+
+  /* Experience */
+  .experience-item {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 32px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+    flex: 1 1 100%;
+    transition: transform 0.3s ease;
+  }
+
+  .experience-item:hover,
+  .experience-item:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  }
+
+  .experience-item h3 {
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: #1e3a8a;
+    margin-bottom: 6px;
+  }
+
+  .experience-item .company {
+    font-weight: 600;
+    color: #2563eb;
+    margin-bottom: 8px;
+  }
+
+  .experience-item .dates {
+    font-style: italic;
+    font-size: 1rem;
+    color: #64748b;
+    margin-bottom: 16px;
+  }
+
+  .experience-item ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    color: #475569;
+  }
+
+  /* Projects section */
+  #projects {
+    background: #f9fafb;
+    padding: 32px 24px;
+    border-radius: 16px;
+    margin-bottom: 48px;
+  }
+
+  #projects ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  #projects li {
+    background: white;
+    padding: 20px 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: transform 0.3s ease;
+    cursor: default;
+  }
+
+  #projects li:hover,
+  #projects li:focus {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+  }
+
+  #projects li h3 {
+    font-weight: 700;
+    color: #2563eb;
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+  }
+
+  #projects li p {
+    color: #475569;
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  /* Education */
+  #education .edu-item {
+    background: #e0e7ff;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    padding: 24px 32px;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    transition: background-color 0.3s ease;
+  }
+
+  #education .edu-item:hover,
+  #education .edu-item:focus-within {
+    background-color: #c7d2fe;
+  }
+
+  #education .edu-item h3 {
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 6px;
+    color: #2563eb;
+  }
+
+  #education .edu-item span {
+    font-style: italic;
+    font-size: 1.05rem;
+    color: #475569;
+  }
+
+  #education .edu-item p {
+    margin-top: 10px;
+    color: #475569;
+    font-size: 1rem;
+  }
+
+  /* Certifications & Awards */
+  #certifications,
+  #awards {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    padding: 32px;
+    margin-bottom: 40px;
+  }
+
+  #certifications ul,
+  #awards ul {
+    list-style-type: square;
+    margin-left: 24px;
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 1.5;
+  }
+
+  #certifications ul li,
+  #awards ul li {
+    margin-bottom: 14px;
+    cursor: default;
+  }
+
+  /* Contacts References */
+  #contacts ul {
+    list-style: none;
+    color: #475569;
+    font-size: 1.1rem;
+    font-weight: 600;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+  }
+
+  #contacts li {
+    margin-bottom: 18px;
+  }
+
+  #contacts a {
+    color: #2563eb;
+    font-weight: 700;
+  }
+
+  #contacts a:hover,
+  #contacts a:focus {
+    text-decoration: underline;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 24px 16px;
+    background: #1e40af;
+    color: white;
+    border-radius: 0 0 16px 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: auto;
+    box-shadow: 0 -10px 24px rgba(30, 64, 175, 0.35);
+  }
+
+  /* Responsive */
+  @media (min-width: 640px) {
+    .flex-row .experience-item {
+      flex: 0 1 48%;
+    }
+    header {
+      padding-top: 180px;
+    }
+    .profile-photo {
+      top: 40px;
+      width: 160px;
+      height: 160px;
+      border-width: 6px;
+    }
+    .language-toggle {
+      top: 40px;
+    }
+  }
+  @media (max-width: 480px) {
+    #skills ul {
+      columns: 1;
+    }
+    #projects ul {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Hide non-active language text */
+  [lang-en] {
+    display: none;
+  }
+  html[lang="en"] [lang-id] {
+    display: none;
+  }
+  html[lang="en"] [lang-en] {
+    display: inline;
+  }
+  html[lang="id"] [lang-id] {
+    display: inline;
+  }
+</style>
+</head>
+<body lang="id">
+<header>
+  <div class="profile-photo" aria-label="Professional portrait photo of Gigih Kusuma Wicaksana">
+    <img src="./data/profil.jpg" alt="Professional portrait photo of Gigih Kusuma Wicaksana wearing formal shirt and glasses, smiling confidently" loading="lazy" />
+  </div>
+  <h1>
+    <span lang-id>Gigih Kusuma Wicaksana</span><span lang-en>Gigih Kusuma Wicaksana</span>
+  </h1>
+  <p>
+    <span lang-id>Insinyur Elektro | Spesialis PLC | Ahli Otomasi & Pemeliharaan</span>
+    <span lang-en>Electrical Engineer | PLC Specialist | Automation & Maintenance Expert</span>
+  </p>
+  <nav class="contacts" role="navigation" aria-label="Contact information and links">
+    <a href="mailto:gigihkusuma99@gmail.com" aria-label="Send email to Gigih Kusuma">gigihkusuma99@gmail.com</a>
+    <a href="https://wa.me/6282226899420" aria-label="Call Gigih Kusuma Kusuma">+62 822-2689-9420</a>
+    <a href="https://www.linkedin.com/in/gigih-kusuma-7405b3216/" target="_blank" rel="noopener noreferrer" aria-label="Open Gigih Kusuma LinkedIn profile">LinkedIn</a>
+  </nav>
+  <div class="language-toggle" role="group" aria-label="Language selector">
+    <button id="btn-id" class="active" aria-pressed="true" aria-label="Bahasa Indonesia" type="button">ID</button>
+    <button id="btn-en" aria-pressed="false" aria-label="English" type="button">EN</button>
+  </div>
+</header>
+
+<main class="container" role="main" tabindex="-1">
+
+  <section id="about" aria-labelledby="about-title">
+    <h2 id="about-title" class="section-title">
+      <span lang-id>Tentang Saya</span>
+      <span lang-en>About Me</span>
+    </h2>
+    <p>
+      <span lang-id>
+        Lulusan Universitas Jember dengan IPK 3.63, jurusan Teknik Elektro. Berpengalaman dalam pemrograman PLC (Siemens, Omron, Mitsubishi), otomasi industri, serta pemeliharaan preventif dan korektif. Memiliki pengalaman kepemimpinan dalam tim engineering dan proyek lepas dengan fokus inovasi di bidang otomasi dan optimasi sistem.
+      </span>
+      <span lang-en>
+        Graduate from University of Jember with a GPA of 3.63, specializing in Electrical Engineering. Experienced in PLC programming (Siemens, Omron, Mitsubishi), industrial automation, and preventive/corrective maintenance. Proven leadership in engineering teams and freelance project experience with a passion for innovation in automation and system optimization.
+      </span>
+    </p>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-title">
+    <h2 id="skills-title" class="section-title">
+      <span lang-id>Keahlian & Kompetensi</span>
+      <span lang-en>Skills & Competencies</span>
+    </h2>
+    <ul>
+      <li><span lang-id>Pemrograman PLC (Siemens, Omron, Mitsubishi)</span><span lang-en>PLC Programming (Siemens, Omron, Mitsubishi)</span></li>
+      <li><span lang-id>Pengembangan HMI (AdvancedHMI, CX-Designer)</span><span lang-en>HMI Development (AdvancedHMI, CX-Designer)</span></li>
+      <li><span lang-id>Pemeliharaan preventif & korektif mekanikal dan elektrikal</span><span lang-en>Preventive & Corrective Electrical and Mechanical Maintenance</span></li>
+      <li><span lang-id>AutoCAD dan Desain PCB</span><span lang-en>AutoCAD and PCB Design</span></li>
+      <li><span lang-id>Sistem Proteksi & Koordinasi Relay</span><span lang-en>Protection Systems & Relay Coordination</span></li>
+      <li><span lang-id>Analisis Beban dan Studi Hubung Singkat (ETAP)</span><span lang-en>Load Flow Analysis & Short Circuit Studies (ETAP)</span></li>
+      <li><span lang-id>Desain & Implementasi Sistem Otomasi Industri</span><span lang-en>Industrial Automation System Design & Implementation</span></li>
+    </ul>
+  </section>
+
+  <section id="experience" aria-labelledby="experience-title" class="flex-row">
+    <h2 id="experience-title" class="section-title" style="flex-basis: 100%;">
+      <span lang-id>Pengalaman Kerja</span>
+      <span lang-en>Professional Experience</span>
+    </h2>
+
+    <article class="experience-item" role="region" aria-label="Senior Analyst Maintenance Technician at SPX Express">
+      <h3><span lang-id>Senior Analyst (Teknisi Pemeliharaan)</span><span lang-en>Senior Analyst (Maintenance Technician)</span></h3>
+      <div class="company">
+        <span lang-id>SPX Express (Shopee Indonesia), Surabaya, Indonesia</span>
+        <span lang-en>SPX Express (Shopee Indonesia), Surabaya, Indonesia</span>
+      </div>
+      <div class="dates">Oct 2023 – Present</div>
+      <ul>
+        <li><span lang-id>Melakukan pemeliharaan preventif mesin conveyor elektrikal dan mekanikal untuk menjaga uptime operasional.</span><span lang-en>Performed preventive maintenance on electrical and mechanical conveyor machines ensuring high operational uptime.</span></li>
+      </ul>
+    </article>
+
+    <article class="experience-item" role="region" aria-label="Unit Head Engineering at PT. Tirta Fresindo Jaya (Mayora Group)">
+      <h3><span lang-id>Kepala Unit Engineering</span><span lang-en>Unit Head Engineering</span></h3>
+      <div class="company">
+        <span lang-id>PT. Tirta Fresindo Jaya (Mayora Group), Kabupaten Bogor, Indonesia</span>
+        <span lang-en>PT. Tirta Fresindo Jaya (Mayora Group), Kabupaten Bogor, Indonesia</span>
+      </div>
+      <div class="dates">May 2023 – Aug 2023</div>
+      <ul>
+        <li><span lang-id>Memimpin tim engineering untuk pemeliharaan preventif dan korektif peralatan produksi mekanikal dan elektrikal.</span><span lang-en>Led engineering team for preventive and corrective maintenance of electrical and mechanical production machinery.</span></li>
+      </ul>
+    </article>
+
+    <article class="experience-item" role="region" aria-label="Technical Staff Intern at PT. PLN ULP Muncar">
+      <h3><span lang-id>Staf Teknik Magang</span><span lang-en>Technical Staff Intern</span></h3>
+      <div class="company">
+        <span lang-id>PT. PLN (Persero) ULP Muncar, Banyuwangi, Indonesia</span>
+        <span lang-en>PT. PLN (Persero) ULP Muncar, Banyuwangi, Indonesia</span>
+      </div>
+      <div class="dates">Feb 2022 – Mar 2022</div>
+      <ul>
+        <li><span lang-id>Melakukan inspeksi dan pemeliharaan jaringan distribusi tegangan menengah dan sistem proteksi jaringan untuk menjaga keandalan sistem.</span><span lang-en>Inspected and maintained medium voltage distribution networks and protection systems to ensure system reliability.</span></li>
+      </ul>
+    </article>
+
+    <article class="experience-item" role="region" aria-label="Freelance PLC Engineer at PT. Eyiptronics Solusi Engineering">
+      <h3><span lang-id>Teknisi PLC Lepas</span><span lang-en>Freelance PLC Engineer</span></h3>
+      <div class="company">
+        <span lang-id>PT. Eyiptronics Solusi Engineering, Jember, Indonesia</span>
+        <span lang-en>PT. Eyiptronics Solusi Engineering, Jember, Indonesia</span>
+      </div>
+      <div class="dates">Jan 2021 – Feb 2022</div>
+      <ul>
+        <li><span lang-id>Mendesain, memprogram dan memelihara sistem kontrol peralatan industri berbasis PLC untuk berbagai klien.</span><span lang-en>Designed, programmed, and maintained industrial equipment PLC control systems for multiple clients.</span></li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="projects" aria-labelledby="projects-title">
+    <h2 id="projects-title" class="section-title">
+      <span lang-id>Proyek</span>
+      <span lang-en>Projects</span>
+    </h2>
+    <ul>
+      <li tabindex="0">
+        <h3><span lang-id>Set-top-box Server Elearning</span><span lang-en>Set-top-box Elearning Server</span></h3>
+        <p>
+          <span lang-id>Pengembangan platform server set-top-box interaktif untuk mendukung penyampaian konten pembelajaran daring dengan performa optimal dan handal.</span>
+          <span lang-en>Developed an interactive set-top-box server platform to support e-learning content delivery with optimized performance and reliability.</span>
+        </p>
+      </li>
+      <li tabindex="0">
+        <h3><span lang-id>Detektor AIoT COVID-19</span><span lang-en>AIoT COVID-19 Detector</span></h3>
+        <p>
+          <span lang-id>Memperkenalkan sistem Artificial Intelligence of Things (AIoT) untuk mendeteksi dan memantau gejala serta eksposur COVID-19 secara real-time menggunakan sensor dan analitik data.</span>
+          <span lang-en>Built an Artificial Intelligence of Things (AIoT) system to detect and monitor COVID-19 symptoms and exposure in real-time using sensors and data analytics.</span>
+        </p>
+      </li>
+      <li tabindex="0">
+        <h3><span lang-id>Detektor PPE</span><span lang-en>PPE Detector</span></h3>
+        <p>
+          <span lang-id>Menciptakan sistem deteksi Perlengkapan Pelindung Diri (PPE) otomatis yang mengintegrasikan computer vision dan kontrol PLC untuk meningkatkan keselamatan kerja.</span>
+          <span lang-en>Created an automated Personal Protective Equipment (PPE) detection system integrating computer vision and PLC controls to enhance workplace safety.</span>
+        </p>
+      </li>
+      <li tabindex="0">
+        <h3><span lang-id>Absensi berbasis AIoT</span><span lang-en>AIoT-based Attendance System</span></h3>
+        <p>
+          <span lang-id>Mendesain sistem absensi menggunakan AIoT yang memanfaatkan perangkat IoT dan algoritma AI untuk pelacakan kehadiran karyawan secara akurat.</span>
+          <span lang-en>Designed an AIoT-based attendance system that uses IoT devices and AI algorithms to accurately track and manage employee attendance.</span>
+        </p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="education" aria-labelledby="education-title">
+    <h2 id="education-title" class="section-title">
+      <span lang-id>Pendidikan</span>
+      <span lang-en>Education</span>
+    </h2>
+    <div class="edu-item" role="region" aria-label="Bachelor Degree in Electrical Engineering at University of Jember">
+      <h3><span lang-id>S1 Teknik Elektro</span><span lang-en>Bachelor of Electrical Engineering</span></h3>
+      <span><span lang-id>Universitas Jember, 2019 – 2023</span><span lang-en>University of Jember, 2019 – 2023</span></span>
+      <p>
+        <span lang-id>IPK: 3.62 | Konsentrasi: Elektronika, Biomedik, dan Sistem Otomasi | Programmer UKM Robotika</span>
+        <span lang-en>GPA: 3.62 | Concentrations: Electronics, Biomedical, and Automation Systems | Robotics Club Programmer</span>
+      </p>
+    </div>
+    <div class="edu-item" role="region" aria-label="High School">
+      <h3><span lang-id>SMAN 2 Genteng</span><span lang-en>SMAN 2 Genteng</span></h3>
+      <span><span lang-id>2016 – 2019</span><span lang-en>2016 – 2019</span></span>
+      <p><span lang-id>Jurusan IPA (Ilmu Pengetahuan Alam)</span><span lang-en>Science Major</span></p>
+    </div>
+  </section>
+
+  <section id="certifications" aria-labelledby="certifications-title">
+    <h2 id="certifications-title" class="section-title">
+      <span lang-id>Sertifikasi</span>
+      <span lang-en>Certifications</span>
+    </h2>
+    <ul>
+      <li>
+        <span lang-id>Sertifikat Pengoperasian Peralatan Elektronik berbasis PLC (ID Kredensial: 33200.7412.1.0014317.2022)</span>
+        <span lang-en>Certified Operator for PLC-based Electronic Equipment (Credential ID: 33200.7412.1.0014317.2022)</span>
+      </li>
+      <li>
+        <span lang-id>Memelihara hubungan kerja dan lingkungan tempat kerja</span>
+        <span lang-en>Workplace Relations & Environmental Maintenance</span>
+      </li>
+      <li>
+        <span lang-id>Pengoperasian Peralatan Listrik, Elektronik & PLC</span>
+        <span lang-en>Electrical, Electronic & PLC Equipment Operation</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="awards" aria-labelledby="awards-title">
+    <h2 id="awards-title" class="section-title">
+      <span lang-id>Penghargaan & Prestasi</span>
+      <span lang-en>Awards & Achievements</span>
+    </h2>
+    <ul>
+      <li>
+        <span lang-id>Juara 2 Lomba Inovasi Digital Mahasiswa 2021, Divisi Teknologi Pendidikan, Pusat Prestasi Nasional</span>
+        <span lang-en>2nd Place - Digital Innovation Competition 2021, Education Technology Division, Pusat Prestasi Nasional</span>
+      </li>
+      <li>
+        <span lang-id>Juara 2 Projekt Ilmiah IAYSF 2021, Iran</span>
+        <span lang-en>2nd Place - IAYSF Scientific Project 2021, Iran</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="contacts" aria-labelledby="contacts-title">
+    <h2 id="contacts-title" class="section-title">
+      <span lang-id>Referensi</span>
+      <span lang-en>References</span>
+    </h2>
+    <ul>
+      <li>
+        <span lang-id>Ridwan Nugroho - Koordinator Rekrutmen Mayora</span>
+        <span lang-en>Ridwan Nugroho - Recruitment Coordinator Officer Mayora</span><br />
+        <a href="tel:+6285720043393" aria-label="Call Ridwan Nugroho">+62 857-2004-3393</a>
+      </li>
+      <li>
+        <span lang-id>Israj Ramdhan Hakim - Kepala Unit Utility PT. Tirta Fresindo Jaya</span>
+        <span lang-en>Israj Ramdhan Hakim - Unit Head Utility PT. Tirta Fresindo Jaya</span><br />
+        <a href="tel:+6289520886979" aria-label="Call Israj Ramdhan Hakim">+62 895-2088-6979</a>
+      </li>
+    </ul>
+  </section>
+
+</main>
+
+<footer role="contentinfo">
+  <span lang-id>&copy; 2024 Gigih Kusuma Wicaksana. Hak cipta dilindungi undang-undang.</span>
+  <span lang-en>&copy; 2024 Gigih Kusuma Wicaksana. All rights reserved.</span>
+</footer>
+
+<script>
+  // Language toggle functionality
+  const btnID = document.getElementById('btn-id');
+  const btnEN = document.getElementById('btn-en');
+  const htmlEl = document.documentElement;
+
+  function setLanguage(lang) {
+    if(lang === 'id') {
+      htmlEl.lang = 'id';
+      btnID.classList.add('active');
+      btnID.setAttribute('aria-pressed', 'true');
+      btnEN.classList.remove('active');
+      btnEN.setAttribute('aria-pressed', 'false');
+    } else if(lang === 'en') {
+      htmlEl.lang = 'en';
+      btnEN.classList.add('active');
+      btnEN.setAttribute('aria-pressed', 'true');
+      btnID.classList.remove('active');
+      btnID.setAttribute('aria-pressed', 'false');
+    }
+  }
+
+  btnID.addEventListener('click', () => setLanguage('id'));
+  btnEN.addEventListener('click', () => setLanguage('en'));
+</script>
+</body>
+</html>
